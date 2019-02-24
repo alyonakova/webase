@@ -31,6 +31,9 @@ require_once 'include/authentication.php';
                 <li class="selected"><a href="teacher_account.php">Личный кабинет</a></li>
                 <li><a href="course.php">Обучение</a></li>
                 <li><a href="rules.php">О курсе</a></li>
+                <?php if (is_logged_in()) { ?>
+                    <li><a href="logout.php">Выход</a></li>
+                <?php } ?>
             </ul>
         </div>
     </div>
