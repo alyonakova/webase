@@ -1,0 +1,395 @@
+html {
+    font-size: 18px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"], input[type="password"] {
+    color: #5d5d5d;
+    width: 60%;
+    padding: 8px;
+}
+
+input, textarea {
+    outline: none;
+    border: solid 1px #f2f2f2;
+}
+
+h1, h2, h3 {
+    font: normal 90% 'century gothic', arial;
+    margin: 0 0 15px 0;
+    padding: 15px 0 5px 0;
+    color: #000;
+}
+
+h2 {
+    font-size: 140%;
+}
+
+a, a:hover, .error, .error_registration {
+    outline: none;
+    color: #dd3e46;
+}
+
+a {
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    color: #555;
+}
+
+p {
+    padding: 0 0 20px 0;
+    line-height: 1.7em;
+}
+
+hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 15px 12px -11px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+    background-color: #B00C24;
+    height: 170px;
+    font-size: 0.8em;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 900px;
+}
+
+.logo {
+    width: 880px;
+    padding-bottom: 40px;
+
+}
+
+.logo h1, .logo h2 {
+    font: normal 360% 'century gothic', arial, sans-serif;
+    margin: 0 0 0 9px;
+}
+
+.logo_text h1, .logo_text h1 a, .logo_text h1 a:hover {
+    padding: 22px 0 0 0;
+    color: #fff;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+}
+
+.logo_text h2 {
+    font-size: 1em;
+    padding: 4px 0 0 0;
+    color: #7fd5e0;
+}
+
+.logopng {
+    width: 60px;
+    height: 60px;
+}
+
+.main, .logo, .menubar, .site_content, footer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.menubar {
+    width: 900px;
+    height: 46px;
+}
+
+ul.menu {
+    float: right;
+}
+
+ul.menu li {
+    float: left;
+    padding: 0 0 15px 9px;
+    list-style: none;
+    margin: -9px 2px 0 0;
+}
+
+ul.menu li a {
+    font: normal 110% 'trebuchet ms', sans-serif;
+    display: block;
+    height: 20px;
+    padding: 0 35px 5px 28px;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul.menu li.selected a {
+    color: #e9de91;
+}
+
+ul.menu li a:hover {
+    color: #feda4f;
+}
+
+.site_content {
+    width: 820px;
+    overflow: hidden;
+    margin: 20px auto 0 auto;
+    background-color: white;
+    padding-bottom: 150px;
+}
+
+.sidebar_container {
+    float: right;
+    width: 224px;
+}
+
+.frst_part, .scnd_part, .thrd_part, .frth_part {
+    font-size: 0.8em;
+    margin-top: 15px;
+}
+
+.frth_part {
+    margin-bottom: 30px;
+}
+
+.images {
+    width: 90px;
+    height: 90px;
+    float: left;
+    margin-right: 3%;
+}
+
+.sidebar, .sidebar_2 {
+    float: right;
+    width: 222px;
+    padding: 5%;
+    margin: 0 0 16px 0;
+    border-radius: 5px;
+    height: 270px;
+    background: linear-gradient(to top, #95cde2, #cbe3ec);
+
+}
+
+.sidebar_2 {
+    height: 230px;
+}
+
+.sidebar h2, .sidebar_2 h2 {
+    color: #424242; /*#136cb2;*/
+}
+
+.sidebar input, .reg_container input {
+    margin-top: 5px;
+}
+
+form#login input {
+    border: solid 2px #424242;
+}
+
+.btn, button {
+    font-size: 0.75rem;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 5px;
+    color: #3a5178;
+    border: solid 1px #525252;
+    background: linear-gradient(to top, #ede18c, #f9efaa);
+}
+
+.btn:hover, button:hover {
+    color: #3a5178;
+}
+
+.btn.disabled, button:disabled {
+    cursor: not-allowed;
+    color: #787878;
+    border: solid 1px #525252;
+    background: linear-gradient(to top, #ebebeb, #f7f7f7);
+}
+
+.lables_passreg_text, .reg_container p {
+    font-size: 0.66em;
+    margin-top: 3%;
+}
+
+.content {
+    text-align: left;
+    width: 470px;
+    padding: 0 0 0 5px;
+    float: left;
+}
+
+.content a {
+    text-decoration: none;
+}
+
+.welcome {
+    color: #3a5178;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.content_reg {
+    text-align: left;
+    width: 400px;
+    padding: 0 0 0 15px;
+    float: left;
+    border-radius: 5px;
+    background: linear-gradient(to top, #95cde2, #cbe3ec);
+    height: 420px;
+
+}
+
+.content_reg h1 {
+    color: #424242;
+}
+
+table {
+    width: 100%;
+    border: solid 1px #f4f4f4;
+}
+
+td {
+    padding: 2%;
+    border: solid 1px #f4f4f4;
+}
+
+.center {
+    text-align: center;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+footer {
+    width: 100%;
+    height: 90px;
+    padding: 28px 0 5px 0;
+    text-align: center;
+    background-color: #B00C24;
+    color: #a8aa94;
+    margin-left: 0;
+    margin-right: 0;
+    min-width: 900px;
+    font-size: 0.9em;
+
+    margin-top: 90px;
+    position: absolute;
+    bottom: 0;
+}
+
+.my_name {
+    font-size: 0.7em;
+}
+
+footer a {
+    color: #a8aa94;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+footer p {
+    padding: 0 0 10px 0;
+}
+
+/*CSS Mobile*/
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px) {
+    .header {
+        min-width: 100%;
+        height: 20%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .site_content {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menubar {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        width: 100%;
+        text-align: center;
+    }
+
+    ul.menu {
+        float: none;
+    }
+
+    ul.menu li {
+        margin: 0;
+        padding: 0;
+        float: none;
+    }
+
+    .logo h1 {
+        font: normal 255% 'century gothic', arial, sans-serif;
+    }
+
+    .logo h2 {
+        font: normal 100% 'century gothic', arial, sans-serif;
+    }
+
+    .content h1, h2 {
+        font: normal 110% 'century gothic', arial;
+    }
+
+    .images {
+        width: 20%;
+        height: 20%;
+    }
+
+    .frst_part, .scnd_part, .thrd_part, .frth_part {
+        line-height: 1.5em;
+        padding: 3%;
+        text-align: left;
+    }
+
+    /*for accounts*/
+    table {
+        display: block;
+
+    }
+
+    th {
+        font-size: 75%;
+    }
+
+    td {
+        padding: 0;
+        margin: 0;
+        font-size: 95%;
+        text-align: left;
+    }
+}
+
+.error_registration {
+    display: none;
+}
+
