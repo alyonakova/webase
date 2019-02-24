@@ -1,4 +1,5 @@
 <?php
+require_once 'header.php.inc';
 require_once 'include/groups.php';
 require_once 'include/authentication.php';
 ?>
@@ -15,29 +16,7 @@ require_once 'include/authentication.php';
 <body>
 <div class="main">
 
-    <div class="header">
-
-        <div class="logo">
-            <div class="logo_text">
-                <h1><a href="index.php">
-                    <img src="assets/img/logo2.png" class="logopng">
-                    webase
-                </a></h1>
-                <h2>Обучаемся программированию веб-приложений вместе!</h2>
-            </div>
-        </div>
-        <div class="menubar">
-            <ul class="menu">
-                <li><a href="index.php">Главная</a></li>
-                <li class="selected"><a href="student_account.php">Личный кабинет</a></li>
-                <li><a href="course.php">Обучение</a></li>
-                <li><a href="rules.php">О курсе</a></li>
-                <?php if (is_logged_in()) { ?>
-                    <li><a href="logout.php">Выход</a></li>
-                <?php } ?>
-            </ul>
-        </div>
-    </div>
+    <?php print_header('account') ?>
 
     <div class="site_content">
         <div class="sidebar_container">
