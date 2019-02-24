@@ -52,7 +52,7 @@ namespace groups {
 
     function get_students_in_group($group_id) {
         global $DB;
-        $query = $DB->query("SELECT * FROM Users WHERE group_id = '$group_id'");
+        $query = $DB->query("SELECT * FROM Users WHERE group_id = '$group_id' ORDER BY surname, name, second_name");
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
