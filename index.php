@@ -38,7 +38,7 @@ require_once 'include/authentication.php';
                         <p class="error">Неправильно указан логин или пароль</p>
                     <?php } ?>
                     <form method="POST" action="login.php" id="login">
-                        <input type="text" class="logpass" name="login" placeholder="Логин" required>
+                        <input type="text" class="logpass" name="login" placeholder="Логин" autofocus required>
                         <input type="password" class="logpass" name="password" placeholder="Пароль" required/>
                         <button type="submit" class="btn">Войти</button>
                     </form>
