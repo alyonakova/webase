@@ -44,7 +44,7 @@ require_once 'include/tests.php';
                     <!-- отобразить новую лекцию для ученика-->
                 <?php } ?>
             <?php } ?>
-            <?php if (!is_logged_in()|| $_SESSION['user']['is_teacher']) { ?>
+            <?php if (!is_logged_in() || $_SESSION['user']['is_teacher']) { ?>
                 <!-- отобразить первую лекцию???????если не зареган, новые будут недоступны, для учителя доступны -->
             <?php } ?>
 
