@@ -2,6 +2,7 @@
 
 require_once 'header.php.inc';
 require_once 'include/authentication.php';
+require_once 'include/tests.php';
 
 ?>
 <!DOCTYPE html>
@@ -23,13 +24,18 @@ require_once 'include/authentication.php';
         <div class="sidebar_container">
             <div class="sidebar">
                 <h2>План курса:</h2>
-                <a><b>Лекция 1</b></a><br>
-                <a>Тест 1: обучение</a><br>
-                <a>Тест 1: аттестация</a>
-                <p></p>
-                <a>Лекция 2</a><br>
-                <a>Тест 2: обучение</a><br>
-                <a>Тест 2: аттестация</a>
+                <?php foreach (\tests\get_all() as $test) { ?>
+                    <a href="theory.php?id=<?php echo $test['id'] ?>">
+                        <b>Лекция <?php echo $test['ordinal'] ?></b></a>
+                    <br>
+                    <a href="test.php?training&id=<?php echo $test['id'] ?>">
+                        Тест <?php echo $test['ordinal'] ?>:
+                        обучение</a>
+                    <br>
+                    <a href="test.php?id=<?php echo $test['id'] ?>">
+                        Тест <?php echo $test['ordinal'] ?>: аттестация
+                    </a>
+                <?php } ?>
             </div>
         </div>
         <div class="content">
