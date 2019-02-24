@@ -32,6 +32,9 @@ require_once 'include/registration.php';
                 <li><a href="index.php">Главная</a></li>
                 <li><a href="course.php">Обучение</a></li>
                 <li><a href="rules.php">О курсе</a></li>
+                <?php if (is_logged_in()) { ?>
+                    <li><a href="logout.php">Выход</a></li>
+                <?php } ?>
             </ul>
 
         </div>
@@ -82,7 +85,12 @@ require_once 'include/registration.php';
 
     <footer>
         <p>
-            <a href="index.php">Главная</a> | <a href="course.php">Обучение</a> | <a href="rules.php">О курсе</a>
+            <a href="index.php">Главная</a> |
+            <a href="course.php">Обучение</a> |
+            <a href="rules.php">О курсе</a>
+            <?php if (is_logged_in()) { ?>
+                | <a href="logout.php">Выход</a>
+            <?php } ?>
         </p>
         <p class="my_name">
             Alyona Kovalyova, 2019

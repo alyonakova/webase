@@ -35,7 +35,9 @@ require_once 'include/authentication.php';
                 } ?>
                 <li><a href="course.php">Обучение</a></li>
                 <li><a href="rules.php">О курсе</a></li>
-                <li><a href="logout.php">Выход</a></li>
+                <?php if (is_logged_in()) { ?>
+                    <li><a href="logout.php">Выход</a></li>
+                <?php } ?>
             </ul>
         </nav>
     </header>
