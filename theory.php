@@ -17,7 +17,7 @@ require_once 'header.php.inc';
 <body>
 <main class="main">
     <?php
-    print_header('index');
+    print_header('course');
 
     $id = $_GET['id'];
     $test = \tests\get_test_info($id);
@@ -31,7 +31,26 @@ require_once 'header.php.inc';
     </article>
 
     <a href="test.php?training&id=<?php echo $id ?>">Пройти обучающий тест №&nbsp;<?php echo $test['ordinal'] ?></a>
-
+    <footer>
+        <p>
+            <a href="index.php">Главная</a> |
+            <?php if (is_logged_in()) { ?>
+                <?php if ($_SESSION['user']['is_teacher']) { ?>
+                    <a href="teacher_account.php">Личный кабинет</a> |
+                <?php } else { ?>
+                    <a href="student_account.php">Личный кабинет</a> |
+                <?php }
+            } ?>
+            <a href="course.php">Обучение</a> |
+            <a href="rules.php">О курсе</a>
+            <?php if (is_logged_in()) { ?>
+                | <a href="logout.php">Выход</a>
+            <?php } ?>
+        </p>
+        <p class="my_name">
+            Alyona Kovalyova, 2019
+        </p>
+    </footer>
 </main>
 </body>
 </html>

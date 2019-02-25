@@ -17,7 +17,7 @@ require_once 'header.php.inc';
 <body>
 <main class="main">
     <?php
-    print_header('index');
+    print_header('course');
 
     $id = $_GET['id'];
     $is_training = isset($_GET['training']);
@@ -71,6 +71,26 @@ require_once 'header.php.inc';
         <?php } ?>
         <button type="submit">Готово</button>
     </form>
+    <footer>
+        <p>
+            <a href="index.php">Главная</a> |
+            <?php if (is_logged_in()) { ?>
+                <?php if ($_SESSION['user']['is_teacher']) { ?>
+                    <a href="teacher_account.php">Личный кабинет</a> |
+                <?php } else { ?>
+                    <a href="student_account.php">Личный кабинет</a> |
+                <?php }
+            } ?>
+            <a href="course.php">Обучение</a> |
+            <a href="rules.php">О курсе</a>
+            <?php if (is_logged_in()) { ?>
+                | <a href="logout.php">Выход</a>
+            <?php } ?>
+        </p>
+        <p class="my_name">
+            Alyona Kovalyova, 2019
+        </p>
+    </footer>
 </main>
 </body>
 </html>
