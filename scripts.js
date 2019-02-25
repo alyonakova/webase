@@ -26,3 +26,7 @@ function f_show_requests() {
         names[i].parentElement.style.display="none";
     }
 }
+
+function f_show_attempts() {
+    document.getElementById("attempt_table").style.display = "block";
+}

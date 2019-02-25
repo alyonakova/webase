@@ -5,7 +5,7 @@ namespace tests {
 
     function get_all() {
         global $DB;
-        $query = $DB->query("SELECT id, ordinal FROM Test");
+        $query = $DB->query("SELECT id, ordinal, possible_num_attempt FROM Test");
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 

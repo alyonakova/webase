@@ -47,11 +47,27 @@ require_once 'include/tests.php';
                 <p>Если вы хотите сохранять свое состояние в курсе, мы рекомендуем вам <a href='registration_page.php'>зарегистрироваться</a>.</p>
             <?php } else if ($_SESSION['user']['is_teacher']){ ?>
                 <p>Мы рады представить вам наш курс! Вы можете ознакомиться с ним, прочитав лекции и пройдя тесты. Весь курс доступен вам уже сейчас!</p>
-                <p>Для своих учеников вы можете задать <a href="#">количество попыток</a> на каждый тест.</p>
+                <p>Для своих учеников вы можете задать <a href="#" onclick="f_show_attempts()">количество попыток</a> на каждый тест.</p>
                 <?php } else { ?>
                 <p>Чтобы не запоминать, где вы остановились, нужный вам
                     блок подсвечивается в плане курса. Просто нажмите на него и продолжайте ваше обучение. Желаем удачи!</p>
                 <?php } ?>
+            </div>
+            <div style="display: none" id="attempt_table">
+                <table>
+                    <tr>
+                        <th class="center">Номер теста</th>
+                        <th class="center">Количество попыток</th>
+                        <th class="center">Изменить</th>
+                    </tr>
+                    <?php foreach (\tests\get_all() as $test) {?>
+                    <tr>
+                        <td><?php echo $test['ordinal'] ?></td>
+                        <td><?php echo $test['possible_num_attempt'] ?></td>
+                        <td><input type="text"> <a href="#">ок</a></td>
+                    </tr>
+                    <?php } ?>
+                </table>
             </div>
         </div>
     </div>
@@ -76,6 +92,7 @@ require_once 'include/tests.php';
             Alyona Kovalyova, 2019
         </p>
     </footer>
+    <script src="scripts.js"></script>
 </main>
 </body>
 </html>
