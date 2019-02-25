@@ -16,9 +16,12 @@ require_once 'header.php.inc';
 </head>
 <body>
 <main class="main">
+
     <?php
     print_header('course');
-
+    ?>
+    <div class="site_content">
+    <?php
     $id = $_GET['id'];
     $is_training = isset($_GET['training']);
 
@@ -71,6 +74,8 @@ require_once 'header.php.inc';
         <?php } ?>
         <button type="submit">Готово</button>
     </form>
+    </div>
+
     <footer>
         <p>
             <a href="index.php">Главная</a> |

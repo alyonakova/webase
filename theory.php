@@ -22,7 +22,7 @@ require_once 'header.php.inc';
     $id = $_GET['id'];
     $test = \tests\get_test_info($id);
     ?>
-
+    <div class="site_content">
     <article class="theory">
         <h1>Теория к тесту №&nbsp;<?php echo $test['ordinal']; ?></h1>
         <p>
@@ -31,7 +31,8 @@ require_once 'header.php.inc';
     </article>
 
     <a href="test.php?training&id=<?php echo $id ?>">Пройти обучающий тест №&nbsp;<?php echo $test['ordinal'] ?></a>
-    <footer>
+    </div>
+        <footer>
         <p>
             <a href="index.php">Главная</a> |
             <?php if (is_logged_in()) { ?>
