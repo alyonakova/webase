@@ -1,5 +1,6 @@
 <?php
 require_once 'include/authentication.php';
+require_once 'header.php.inc';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -13,34 +14,7 @@ require_once 'include/authentication.php';
 </head>
 <body>
 <main class="main">
-    <header class="header">
-        <div class="logo">
-            <div class="logo_text">
-                <h1><a href="index.php">
-                        <img src="assets/img/logo2.png" class="logopng">
-                        webase
-                    </a></h1>
-                <h2>Обучаемся программированию веб-приложений вместе!</h2>
-            </div>
-        </div>
-        <nav class="menubar">
-            <ul class="menu">
-                <li class="selected"><a href="index.php">Главная</a></li>
-                <?php if (is_logged_in()) { ?>
-                    <?php if ($_SESSION['user']['is_teacher']) { ?>
-                        <li><a href="teacher_account.php">Личный кабинет</a></li>
-                    <?php } else { ?>
-                        <li><a href="student_account.php">Личный кабинет</a></li>
-                    <?php }
-                } ?>
-                <li><a href="course.php">Обучение</a></li>
-                <li><a href="rules.php">О курсе</a></li>
-                <?php if (is_logged_in()) { ?>
-                    <li><a href="logout.php">Выход</a></li>
-                <?php } ?>
-            </ul>
-        </nav>
-    </header>
+    <?php print_header('index') ?>
     <div class="site_content">
         <div class="sidebar_container">
             <?php if (is_logged_in()) { ?>
