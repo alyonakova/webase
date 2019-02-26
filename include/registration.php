@@ -28,3 +28,8 @@ function try_register($login, $surname, $name, $secname, $is_teacher, $password)
     return $DB->query("INSERT INTO Users(id, login, password, surname, name, second_name, is_teacher, group_id) VALUES(null, '$login', '$password', '$surname', '$name', '$secname', $is_teacher, null)");
 }
 
+function set_default_attempts($test_id, $teacher_id) {
+    global $DB;
+    $query = $DB->query("INSERT INTO Test_Teacher(test_id, teacher_id, possib_num_attempt) VALUES('$test_id', '$teacher_id', 3)");
+}
+

@@ -61,11 +61,13 @@ require_once 'include/tests.php';
                         <th class="center">Изменить</th>
                     </tr>
                     <?php foreach (\tests\get_all() as $test) {?>
+                    <form action="change_attempt.php" method="post" name="form<?php echo $test['id']?>">
                     <tr>
-                        <td><?php echo $test['ordinal'] ?></td>
-                        <td><?php echo $test['possible_num_attempt'] ?></td>
-                        <td><input type="text"> <a href="#">ок</a></td>
+                        <td><?php echo $test['ordinal'] ?><input type="hidden" name="test_id" value="<?php echo $test['id']?>"/></td>
+                        <td><?php echo \tests\get_attempts($test['id'], get_user_id()) ?></td>
+                        <td><input type="text" name="attempt"> <button type="submit">ок</button></td>
                     </tr>
+                    </form>
                     <?php } ?>
                 </table>
             </div>

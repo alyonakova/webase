@@ -2,10 +2,11 @@
 
 namespace tests {
     require_once 'database.php';
+    require_once 'groups.php';
 
     function get_all() {
         global $DB;
-        $query = $DB->query("SELECT id, ordinal, possible_num_attempt FROM Test");
+        $query = $DB->query("SELECT id, ordinal FROM Test");
         return $query->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -53,5 +54,16 @@ namespace tests {
         global $DB;
         $query = $DB->query("SELECT correct_answer FROM Question WHERE id = $question_id");
         return $query->fetch_assoc()['correct_answer'];
+    }
+
+    function change_attempt($test_id, $teacher_id, $attempt) {
+        global $DB;
+        $query = $DB->query("UPDATE Test_Teacher SET possib_num_attempt = '$attempt' WHERE test_id = '$test_id' AND teacher_id = '$teacher_id'");
+    }
+
+    function get_attempts($test_id, $teacher_id) {
+        global $DB;
+        $query = $DB->query("SELECT possib_num_attempt FROM Test_Teacher WHERE test_id = '$test_id' AND teacher_id = '$teacher_id'");
+        return $query->fetch_assoc()['possib_num_attempt'];
     }
 }
