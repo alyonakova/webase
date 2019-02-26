@@ -35,6 +35,7 @@ require_once 'include/tests.php';
                     <a href="test.php?id=<?php echo $test['id'] ?>">
                         Тест <?php echo $test['ordinal'] ?>: аттестация
                     </a>
+                    <p></p>
                 <?php } ?>
             </div>
         </div>
