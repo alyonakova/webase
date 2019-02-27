@@ -24,10 +24,10 @@ require_once 'header.php.inc';
     ?>
     <div class="site_content">
     <article class="theory">
-        <h1>Теория к тесту №&nbsp;<?php echo $test['ordinal']; ?></h1>
-        <p>
+        <h1>Лекция №&nbsp;<?php echo $test['ordinal']; ?></h1>
+        <div>
             <?php echo $test['html_theory'] ?>
-        </p>
+        </div>
     </article>
 
     <a href="test.php?training&id=<?php echo $id ?>">Пройти обучающий тест №&nbsp;<?php echo $test['ordinal'] ?></a>
