@@ -2,6 +2,7 @@
 require_once 'header.php.inc';
 require_once 'include/groups.php';
 require_once 'include/authentication.php';
+require_once 'include/tests.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -57,12 +58,14 @@ require_once 'include/authentication.php';
                     <th class="center">Максимально</th>
                     <th class="center">Оценка</th>
                 </tr>
+                <?php foreach (\tests\get_all_done_tests(get_user_id()) as $test) {?>
                 <tr>
-                    <td class="center">1</td>
-                    <td class="center">9</td>
-                    <td class="center">10</td>
-                    <td class="center">5</td>
+                    <td class="center"><?php echo \tests\get_test_info($test['test_id'])['ordinal'] ?></td>
+                    <td class="center"><?php echo $test['points'] ?></td>
+                    <td class="center"><?php echo \tests\get_test_info($test['test_id'])['max_points'] ?></td>
+                    <td class="center"><?php echo $test['mark'] ?></td>
                 </tr>
+                <?php } ?>
             </table>
 
 
