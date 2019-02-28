@@ -61,7 +61,7 @@ require_once 'header.php.inc';
                             <input name="answer<?php echo $question['ordinal'] ?>" type="radio"
                                    value="<?php echo htmlspecialchars($option) ?>" required>
                             <?php echo $option; ?>
-                        </label>
+                        </label><br>
                     <?php } ?>
                 <?php } else { ?>
                     <label>

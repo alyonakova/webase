@@ -66,4 +66,14 @@ namespace tests {
         $query = $DB->query("SELECT possib_num_attempt FROM Test_Teacher WHERE test_id = '$test_id' AND teacher_id = '$teacher_id'");
         return $query->fetch_assoc()['possib_num_attempt'];
     }
+
+    function set_user_test_data($test_id, $user_id, $points, $attempt, $mark, $date) {
+        global $DB;
+        $query = $DB->query("SELECT * FROM Test_Student WHERE test_id='$test_id' AND user_id='$user_id'");
+        if ($query == null) {
+            $query = $DB->query("INSERT INTO Test_Student(test_id, user_id, points, attempt, mark, date) VALUES('$test_id', '$user_id', '$points', '$attempt', '$mark', '$date')");
+        } else {
+            $query = $DB->query("UPDATE Test_Student SET points = '$points', attempt = '$attempt', mark = '$mark', date = '$date' WHERE test_id = '$test_id' AND user_id = '$user_id'");
+        }
+    }
 }
