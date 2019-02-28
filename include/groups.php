@@ -105,5 +105,11 @@ namespace groups {
         global $DB;
         $query = $DB->query("DELETE FROM Request WHERE user_id = '$user_id'");
     }
+
+    function get_teacher_id_by_group($group_id) {
+        global $DB;
+        $query = $DB->query("SELECT teacher_id FROM `Groups` WHERE id = '$group_id'");
+        return $query->fetch_assoc()['teacher_id'];
+    }
 }
 
