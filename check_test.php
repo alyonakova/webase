@@ -6,6 +6,7 @@ require_once 'include/authentication.php';
 
 $test_id = $_POST['test_id'];
 $test = \tests\get_test_info($test_id);
+$is_training = $_POST["is_training"];
 
 $given_answers = [];
 ?>
@@ -26,15 +27,33 @@ $given_answers = [];
 print_header('course');
 ?>
     <div class="site_content">
+        <?php $points = 0; ?>
 <?php for ($i = 1; $i <= $test['num_questions']; $i++) {
     $question_id = $_POST["question$i"];
     $given_answers[$i] = $_POST["answer$i"];
     $correct_answer = \tests\get_correct_answer($question_id);
     if ($given_answers[$i] == $correct_answer) {
-        echo "вопрос $i, ответ верный;";
-    } else {
-        echo "вопрос $i, ответ НЕПРАВИЛЬНЫЙ;";
+        $points++;
     }
+}
+$all = $test['num_questions'];
+echo "Вы набрали $points баллов из $all";
+$percent = $points * 100 / $all;
+if ($percent < 60) {
+    $mark = 2;
+} else if ($percent < 75) {
+    $mark = 3;
+} else if ($percent < 90.01) {
+    $mark = 4;
+} else {
+    $mark = 5;
+}
+?>
+   <br>
+<?php
+echo "Ваша оценка — $mark";
+if (!$is_training && !$_SESSION['user']['is_teacher']) {
+    \tests\append_user_attempt($test['id'], get_user_id(), $points, \tests\get_used_attempts($test['id'], get_user_id())+1, $mark);
 }
 ?>
     </div>
