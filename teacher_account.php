@@ -2,6 +2,7 @@
 require_once 'header.php.inc';
 require_once 'include/groups.php';
 require_once 'include/authentication.php';
+require_once 'include/tests.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -59,7 +60,7 @@ require_once 'include/authentication.php';
                             <td class="center"><?php echo $student['surname']?></td>
                             <td class="center"><?php echo $student['name']?></td>
                             <td class="center"><?php echo $student['second_name']?></td>
-                            <td class="center"></td>
+                            <td class="center"><?php echo \tests\get_last_done_test_ordinal($student['id'])?></td>
                         </tr>
                     <?php } ?>
                     </table>
