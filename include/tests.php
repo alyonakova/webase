@@ -131,4 +131,10 @@ namespace tests {
         $group_id = \groups\get_student_group_id($student_id);
         return \groups\get_teacher_id_by_group($group_id);
     }
+
+    function get_all_done_tests($user_id) {
+        global $DB;
+        $query = $DB->query("SELECT * FROM Test_Student WHERE user_id = '$user_id'");
+        return $query->fetch_all(MYSQLI_ASSOC);
+    }
 }

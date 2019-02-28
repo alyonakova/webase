@@ -1,7 +1,8 @@
 <?php
+require_once 'header.php.inc';
 require_once 'include/groups.php';
 require_once 'include/authentication.php';
-require_once 'header.php.inc';
+require_once 'include/tests.php';
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -20,6 +21,7 @@ require_once 'header.php.inc';
     <div class="site_content">
         <h1>Протокол изменений</h1>
         <div class="content">
+            <?php if (\groups\has_groups(get_user_id())) { ?>
             <table>
                 <tr>
                     <th class="center">Фамилия</th>
@@ -31,17 +33,24 @@ require_once 'header.php.inc';
                     <th class="center">Попытка</th>
                     <th class="center">Дата</th>
                 </tr>
+                <?php foreach (\groups\by_teacher(get_user_id()) as $group) { ?>
+                <?php foreach (\groups\get_students_in_group($group['id']) as $student) { ?>
+                        <?php foreach (\tests\get_all_done_tests($student['id']) as $test){?>
                 <tr>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
-                    <td class="center"></td>
+                    <td class="center"><?php echo $student['surname']?></td>
+                    <td class="center"><?php echo $student['name']?></td>
+                    <td class="center"><?php echo $student['second_name']?></td>
+                    <td class="center"><?php echo \groups\get_student_group_name($student['id'])?></td>
+                    <td class="center"><?php echo \tests\get_test_info($test['test_id'])['ordinal']?></td>
+                    <td class="center"><?php echo $test['points']?></td>
+                    <td class="center"><?php echo $test['attempt']?></td>
+                    <td class="center"><?php echo $test['date']?></td>
                 </tr>
+                        <?php } ?>
+                <?php } ?>
+                <?php } ?>
             </table>
+            <?php } ?>
         </div>
     </div>
 
