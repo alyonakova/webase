@@ -50,13 +50,13 @@ require_once 'header.php.inc';
             <div class="reg_container">
                 <h4>Изменить данные учетной записи</h4>
                 <form method="post" action="update_settings.php">
-                    <input type="text" placeholder="Логин" class="logpass" name="login" pattern=".{3,14}" title="Длина логина должна составлять от 3 до 14 символов">
+                    <input type="text" class="logpass" name="login" pattern=".{3,14}" title="Длина логина должна составлять от 3 до 14 символов" value="<?php echo htmlspecialchars($_SESSION['user']['login'])?>">
                     <?php if (array_key_exists('failed', $_GET)) { ?>
                         <br><span class="error">Такой логин уже существует</span>
                     <?php } ?>
-                    <input type="text" placeholder="Фамилия" class="logpass" name="surname" >
-                    <input type="text" placeholder="Имя" class="logpass" name="name" >
-                    <input type="text" placeholder="Отчество" class="logpass" name="secname" >
+                    <input type="text" class="logpass" name="surname" value="<?php echo htmlspecialchars($_SESSION['user']['surname'])?>">
+                    <input type="text" class="logpass" name="name" value="<?php echo htmlspecialchars($_SESSION['user']['name'])?>">
+                    <input type="text" class="logpass" name="secname" value="<?php echo htmlspecialchars($_SESSION['user']['second_name'])?>">
                     <input type="password" placeholder="Пароль" class="logpass" name="password" pattern=".{4,}" title="Длина пароля должна составлять не менее 4 символов" >
                     <div>
                         <input type="submit" value="Отправить" class="btn">
