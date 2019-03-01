@@ -21,7 +21,7 @@ require_once 'header.php.inc';
     <div class="site_content">
         <div class="sidebar_container">
             <div class="instruction_img">
-                <img src="assets/img/bulb.png">
+                <img src="assets/img/bulb.png" class="images">
             </div>
             <div>
                 <h2>Инструкция</h2>
