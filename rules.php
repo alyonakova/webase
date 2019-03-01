@@ -21,48 +21,57 @@ require_once 'include/authentication.php';
 
     <div class="site_content">
         <div class="sidebar_container">
-            <div class="sidebar">
-                <h2>Вход</h2>
-                <form method="post" action="#" id="login">
-                    <input type="text" name="login_field" placeholder="Логин" class="logpass"/>
-                    <input type="password" name="password_field" placeholder="Пароль" class="logpass"/>
-                    <input type="submit" class="btn" value="Войти">
+            <?php if (is_logged_in()) { ?>
+                <div class="sidebar_2">
+                    <h2>
+                        Добрый день, <?php echo htmlspecialchars(get_username()); ?>
+                    </h2>
+                    <a href="settings.php">Настройки</a>
+                    <form action="logout.php" class="lables_passreg_text">
+                        <button>Выйти из учётной записи</button>
+                    </form>
+                </div>
+            <?php } else { ?>
+                <div class="sidebar">
+                    <h2>Вход</h2>
+                    <?php if (array_key_exists('failed', $_GET)) { ?>
+                        <p class="error">Неправильно указан логин или пароль</p>
+                    <?php } ?>
+                    <form method="POST" action="login.php" id="login">
+                        <input type="text" class="logpass" name="login" placeholder="Логин" autofocus required>
+                        <input type="password" class="logpass" name="password" placeholder="Пароль" required/>
+                        <button type="submit" class="btn">Войти</button>
+                    </form>
                     <div class="lables_passreg_text">
-                        <span>Впервые на сайте?</span>  <span><a href="registration_page.php">Регистрация</a></span>
+                        Впервые на сайте?
+                        <a href="registration_page.php">Регистрация</a>
                     </div>
-                </form>
-            </div>
+                </div>
+            <?php } ?>
         </div>
         <div class="content">
-            <div class="welcome">Добро пожаловать!
+            <div class="welcome">О курсе
                 <hr>
             </div>
             <div class="frst_part">
                 <p>
-                    <img src="assets/img/site.png" class="images">
-                    Webase — интерактивный онлайн-курс, предназначенный для всех желающих обучиться веб-программированию.
+                    Сайт Webase предназначен для обучения web-программированию. Здесь можно читать лекции и проходить обучающие и аттестующие тесты, зарабатывать за них баллы и получать оценки.
                 </p>
                 <hr>
             </div>
             <div class="scnd_part">
                 <p>
-                    <img src="assets/img/test.png" class="images">
-                    Обучение проходит эфффективнее, если теорию закреплять практикой. На нашем сайте после каждого теоретического блока можно пройти тестирование.
+                    Незарегистрированным пользователям сайта доступны только первая лекция и обучающий тест из всей программы курса. Для получения доступа ко всему курсу необходимо зарегистрироваться.
                 </p>
                 <hr>
             </div>
             <div class="thrd_part">
                 <p>
-                    <img src="assets/img/registration.png" class="images">
-                    Зарегистрируйтесь для получения возможности сохранять свое состояние в обучении или просмотра прогресса ваших учеников, если вы являетесь преподавателем.
+                    Зарегистрироваться на сайте возможно в качестве ученика или преподавателя. Преподаватель должен создать учебную группу и сообщить ученикам ее id, для того, чтобы ученики вступили в нее.
+                    После вступления учеников в группу преподаватель может видеть их прогресс, а также устанавливать число попыток для каждого теста.
+                    Ученики же должны проходить все тесты последовательно: пока аттестующий тест не будет пройден, следующий блок с лекцией и тестами не появится.
                 </p>
                 <hr>
-            </div>
-            <div class="frth_part">
-                <p>
-                    <img src="assets/img/mark.png" class="images">
-                    Получайте баллы за выполненные тесты. Желаем успехов!
-                </p>
             </div>
         </div>
     </div>
