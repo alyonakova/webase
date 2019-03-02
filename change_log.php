@@ -30,6 +30,7 @@ require_once 'include/tests.php';
                     <th class="center">Группа</th>
                     <th class="center">Номер теста</th>
                     <th class="center">Баллы</th>
+                    <th class="center">Оценка</th>
                     <th class="center">Попытка</th>
                     <th class="center">Дата</th>
                 </tr>
@@ -43,6 +44,7 @@ require_once 'include/tests.php';
                     <td class="center"><?php echo \groups\get_student_group_name($student['id'])?></td>
                     <td class="center"><?php echo \tests\get_test_info($test['test_id'])['ordinal']?></td>
                     <td class="center"><?php echo $test['points']?></td>
+                    <td class="center"><?php echo $test['mark']?></td>
                     <td class="center"><?php echo $test['attempt']?></td>
                     <td class="center"><?php echo $test['date']?></td>
                 </tr>
