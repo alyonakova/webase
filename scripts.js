@@ -31,16 +31,17 @@ function f_show_attempts() {
     document.getElementById("attempt_table").style.display = "block";
 }
 
-function f_show_error_mes() {
-    var login = document.getElementById("user_id").value.length;
-    var surname = document.getElementById("surname_reg").value.length;
-    var name = document.getElementById("name_reg").value.length;
-    var second_name = document.getElementById("second_name_reg").value.length;
-    var password = document.getElementById("password_reg").value.length;
+function f_validate_form(form) {
+    const login = form.elements['login'].value;
+    const surname = form.elements['surname'].value;
+    const name = form.elements['name'].value;
+    const second_name = form.elements['secname'].value;
+    const password = form.elements['password'].value;
     var firstCheck = true;
     var secondCheck = true;
     var thirdCheck = true;
-    if (login === 0 || surname === 0 || name === 0 || second_name === 0 || password === 0) {
+    if (login.length === 0 || surname.length === 0 || name.length === 0 ||
+        second_name.length === 0 || password.length === 0) {
         document.getElementById("all_empty").style.display = "block";
         firstCheck = false;
     }
@@ -52,7 +53,5 @@ function f_show_error_mes() {
         document.getElementById("password_length").style.display = "block";
         thirdCheck = false;
     }
-    if (!firstCheck || !secondCheck || !thirdCheck) {
-        return false;
-    } 
+    return firstCheck && secondCheck && thirdCheck;
 }
