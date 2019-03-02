@@ -5,7 +5,7 @@ require_once 'include/authentication.php';
 require_once 'include/registration.php';
 require_once 'include/tests.php';
 
-$redirect = "Location: registration_page.php";
+$redirect = "Location: registration_page.php?failed";
 
 if (isset($_POST['login']) && isset($_POST['surname']) && isset($_POST['name'])
 && isset($_POST['secname']) && isset($_POST['stud_teach']) && isset($_POST['password'])) {
@@ -23,8 +23,6 @@ if (isset($_POST['login']) && isset($_POST['surname']) && isset($_POST['name'])
             }
         }
         $redirect = 'Location: index.php';
-    } else {
-        $redirect .= '?failed';
     }
 }
 
