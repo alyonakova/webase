@@ -37,14 +37,16 @@ require_once 'header.php.inc';
         <div class="content_reg">
             <h1>Регистрация</h1>
             <div class="reg_container">
-                <form method="post" action="registration.php" id="reg">
-                    <input type="text" placeholder="Логин" class="logpass" name="login" pattern=".{3,14}" title="Длина логина должна составлять от 3 до 14 символов" required>
+                <div class="error_registration" id="all_empty" style="display: none">Все поля должны быть заполнены</div>
+                <form method="post" action="registration.php" id="reg" onsubmit="return f_show_error_mes()">
+                    <input type="text" placeholder="Логин" class="logpass" name="login" id="user_id"> <!--pattern=".{3,14}" title="Длина логина должна составлять от 3 до 14 символов" id="user_login" required -->
+                    <div class="error_registration" id="login_length" style="display: none">Длина логина должна составлять от 3 до 14 символов</div>
                     <?php if (array_key_exists('failed', $_GET)) { ?>
-                        <br><span class="error">Такой логин уже существует</span>
+                        <br><span class="error_registration">Такой логин уже существует</span>
                     <?php } ?>
-                    <input type="text" placeholder="Фамилия" class="logpass" name="surname" required>
-                    <input type="text" placeholder="Имя" class="logpass" name="name" required>
-                    <input type="text" placeholder="Отчество" class="logpass" name="secname" required>
+                    <input type="text" placeholder="Фамилия" class="logpass" name="surname" id="surname_reg">
+                    <input type="text" placeholder="Имя" class="logpass" name="name" id="name_reg">
+                    <input type="text" placeholder="Отчество" class="logpass" name="secname" id="second_name_reg">
                     <p>
                         <label>
                             <input type="radio" value="student" name="stud_teach" checked required> Я — ученик
@@ -53,7 +55,8 @@ require_once 'header.php.inc';
                             <input type="radio" value="teacher" name="stud_teach"> Я — преподаватель
                         </label>
                     </p>
-                    <input type="password" placeholder="Пароль" class="logpass" name="password" pattern=".{4,}" title="Длина пароля должна составлять не менее 4 символов" required>
+                    <input type="password" placeholder="Пароль" class="logpass" name="password_reg"><!-- pattern=".{4,}" title="Длина пароля должна составлять не менее 4 символов" id="password" required-->
+                    <div class="error_registration" id="password_length" style="display: none">Длина пароля должна составлять не менее 4 символов</div>
                     <div>
                         <input type="submit" value="Отправить" class="btn">
                     </div>
