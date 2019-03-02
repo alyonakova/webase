@@ -35,7 +35,7 @@ require_once 'include/authentication.php';
                 <div class="sidebar">
                     <h2>Вход</h2>
                     <?php if (array_key_exists('failed', $_GET)) { ?>
-                        <p class="error">Неправильно указан логин или пароль</p>
+                        <p class="error_registration">Неправильно указан логин или пароль</p>
                     <?php } ?>
                     <form method="POST" action="login.php" id="login">
                         <input type="text" class="logpass" name="login" placeholder="Логин" autofocus required>

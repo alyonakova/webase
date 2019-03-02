@@ -52,7 +52,7 @@ require_once 'header.php.inc';
                 <form method="post" action="update_settings.php">
                     <input type="text" class="logpass" name="login" pattern=".{3,14}" title="Длина логина должна составлять от 3 до 14 символов" value="<?php echo htmlspecialchars($_SESSION['user']['login'])?>">
                     <?php if (array_key_exists('failed', $_GET)) { ?>
-                        <br><span class="error">Такой логин уже существует</span>
+                        <br><span class="error_registration">Такой логин уже существует</span>
                     <?php } ?>
                     <input type="text" class="logpass" name="surname" value="<?php echo htmlspecialchars($_SESSION['user']['surname'])?>">
                     <input type="text" class="logpass" name="name" value="<?php echo htmlspecialchars($_SESSION['user']['name'])?>">
