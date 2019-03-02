@@ -29,7 +29,7 @@ h2 {
     font-size: 140%;
 }
 
-a, a:hover, .error, .error_registration {
+a, a:hover, .error_registration {
     outline: none;
     color: #dd3e46;
 }
@@ -291,7 +291,7 @@ footer {
     bottom: 0;
 }
 
-.my_name {
+.my_name, .error_registration {
     font-size: 0.7em;
 }
 
@@ -387,10 +387,6 @@ and (max-device-width: 568px) {
         font-size: 95%;
         text-align: left;
     }
-}
-
-.error_registration {
-    display: none;
 }
 
 code {
