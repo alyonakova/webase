@@ -57,10 +57,10 @@ namespace tests {
         return $last_test['ordinal'];
     }
 
-    function get_correct_answer($question_id) {
+    function get_correct_answers($question_id) {
         global $DB;
         $query = $DB->query("SELECT correct_answer FROM Question WHERE id = $question_id");
-        return $query->fetch_assoc()['correct_answer'];
+        return str_getcsv($query->fetch_assoc()['correct_answer']);
     }
 
     function set_possible_attempts($test_id, $teacher_id, $attempt) {

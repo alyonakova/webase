@@ -28,14 +28,15 @@ print_header('course');
 ?>
     <div class="site_content">
         <?php $points = 0; ?>
-<?php for ($i = 1; $i <= $test['num_questions']; $i++) {
-    $question_id = $_POST["question$i"];
-    $given_answers[$i] = $_POST["answer$i"];
-    $correct_answer = \tests\get_correct_answer($question_id);
-    if ($given_answers[$i] == $correct_answer) {
-        $points++;
-    }
-}
+        <?php for ($i = 1; $i <= $test['num_questions']; $i++) {
+            $question_id = $_POST["question$i"];
+            $given_answers[$i] = $_POST["answer$i"];
+            $correct_answers = \tests\get_correct_answers($question_id);
+            if ((count($given_answers[$i]) == count($correct_answers)) &&
+                !array_diff($given_answers[$i], $correct_answers)) {
+                $points++;
+            }
+        }
 $all = $test['num_questions'];
 echo "Вы набрали $points баллов из $all";
 $percent = $points * 100 / $all;
@@ -49,13 +50,13 @@ if ($percent < 60) {
     $mark = 5;
 }
 ?>
-   <br>
-<?php
-echo "Ваша оценка — $mark";
-if (!$is_training && !$_SESSION['user']['is_teacher']) {
-    \tests\append_user_attempt($test['id'], get_user_id(), $points, \tests\get_used_attempts($test['id'], get_user_id())+1, $mark);
-}
-?>
+        <br>
+        <?php
+        echo "Ваша оценка — $mark";
+        if (!$is_training && !$_SESSION['user']['is_teacher']) {
+            \tests\append_user_attempt($test['id'], get_user_id(), $points, \tests\get_used_attempts($test['id'], get_user_id()) + 1, $mark);
+        }
+        ?>
     </div>
 
     <footer>

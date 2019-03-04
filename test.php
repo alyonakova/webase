@@ -36,7 +36,7 @@ require_once 'header.php.inc';
         $questions = \tests\get_test_questions($id, $is_training);
         ?>
         <?php if ($is_training) { ?>
-            <h1>Обучающий тест №&nbsp;<?php echo $test['ordinal'] ?></h1>
+            <h1 class="test title">Обучающий тест №&nbsp;<?php echo $test['ordinal'] ?></h1>
         <?php } ?>
         <?php
         $possible_attempts = \tests\get_max_possible_attempts($test['id'], \tests\get_teacher_id_by_student(get_user_id()));
@@ -47,7 +47,7 @@ require_once 'header.php.inc';
             || $is_training
             || $_SESSION['user']['is_teacher']) { ?>
             <?php if (!$is_training) { ?>
-                <h1>Аттестующий тест №&nbsp;<?php echo $test['ordinal'] ?></h1>
+                <h1 class="test title">Аттестующий тест №&nbsp;<?php echo $test['ordinal'] ?></h1>
             <?php } ?>
 
             <form action="check_test.php" method="post" class="test">
@@ -66,20 +66,19 @@ require_once 'header.php.inc';
                         <?php if ($question['options'] != null) { ?>
                             <?php foreach (str_getcsv($question['options']) as $option) { ?>
                                 <label>
-                                    <input name="answer<?php echo $question['ordinal'] ?>" type="radio"
-                                           value="<?php echo htmlspecialchars($option) ?>" required>
+                                    <input name="answer<?php echo $question['ordinal'] ?>[]" type="checkbox"
+                                           value="<?php echo htmlspecialchars($option) ?>">
                                     <?php echo $option; ?>
                                 </label><br>
                             <?php } ?>
                         <?php } else { ?>
-                            <label>
+                            <label class="test answer plaintext label">
                                 Ответ:
                                 <input class="test answer" name="answer<?php echo $question['ordinal'] ?>" type="text"
                                        required>
                             </label>
                         <?php } ?>
                     </section>
-                    <hr>
                 <?php } ?>
                 <button type="submit">Готово</button>
             </form>
