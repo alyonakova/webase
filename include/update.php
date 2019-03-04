@@ -6,12 +6,13 @@ function try_to_update() {
     $id = $DB->escape_string($id);
     if ($_POST['login'] != null) {
         $user = find_user_by_login($_POST['login']);
-        if (isset($user)) {
+        if (isset($user) && $user['id'] !== get_user_id()) {
            return false;
         } else {
            $login = $_POST['login'];
            $login = $DB->escape_string($login);
            $update_login = $DB->query("UPDATE Users SET login = '$login' WHERE id = '$id'");
+           $_SESSION['user']['login'] = $login;
            $_SESSION['login'] = $login;
         }
     } else {
@@ -47,8 +48,9 @@ function try_to_update() {
 
     if ($_POST['password'] != null) {
         $password = $_POST['password'];
-        $password = $DB->escape_string(hash_credentials($login, $password));
-        $update_password = $DB->query("UPDATE Users SET password = '$password' WHERE id = '$id'");
+        $salt = rand();
+        $password = $DB->escape_string(hash_credentials($salt, $password));
+        $update_password = $DB->query("UPDATE Users SET salt = '$salt', password = '$password' WHERE id = '$id'");
         $_SESSION['user']['password'] = $password;
     } else {
         $update_password = true;

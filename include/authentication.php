@@ -7,13 +7,14 @@ session_start();
 function find_user($login, $password) {
     global $DB;
     $login = $DB->escape_string($login);
-    $password = $DB->escape_string(hash_credentials($login, $password));
-    $query = $DB->query("SELECT * FROM Users WHERE login LIKE '%$login%' AND password LIKE '%$password%'");
+    $query = $DB->query("SELECT * FROM Users WHERE login LIKE '%$login%'");
     if ($query->num_rows > 0) {
-        return mysqli_fetch_assoc($query);
-    } else {
-        return null;
+        $user = $query->fetch_assoc();
+        if (hash_credentials($user['salt'], $password) == $user['password']) {
+            return $user;
+        }
     }
+    return null;
 }
 
 function try_login($login, $password) {

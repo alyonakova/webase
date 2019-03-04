@@ -10,15 +10,13 @@ if (mysqli_connect_errno()) {
 }
 $DB->set_charset('utf8');
 
-function closeDatabaseConnection()
-{
+function closeDatabaseConnection() {
     global $DB;
     $DB->close();
 }
 
-function hash_credentials($login, $password)
-{
-    return hash('sha3-512', $login . ':' . $password);
+function hash_credentials($salt, $password) {
+    return hash('sha3-512', strval($salt) . ':' . $password);
 }
 
 register_shutdown_function('closeDatabaseConnection');
